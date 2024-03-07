@@ -10,7 +10,6 @@
     "format": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@next/font": "^14.1.2",
     "eslint-config-alloy": "^5.1.2",
     "geist": "^1.2.2",
     "next": "14.0.4",
