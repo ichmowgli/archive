@@ -28,7 +28,11 @@ function Heading() {
         </div>
       </div>
 
-      <div className={cn('md:hidden', openNav ? 'block' : 'hidden')}>
+      <div
+        className={cn('md:hidden', {
+          hidden: !openNav,
+        })}
+      >
         <Navigation />
       </div>
     </>
