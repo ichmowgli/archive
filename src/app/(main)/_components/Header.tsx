@@ -16,15 +16,15 @@ function Heading() {
   return (
     <>
       <div className="m-3.5 flex flex-row items-center justify-between rounded-xl bg-white px-7	py-6">
-        <h1 className="text-2xl font-medium">Archive</h1>
+        <h1 className="text-3xl font-medium uppercase">Archive</h1>
 
         <button className="md:hidden" onClick={handleOpenNav}>
           {openNav ? <X height={24} width={24} /> : <AlignJustify />}
         </button>
 
-        <div className="hidden items-center gap-x-10 pr-7 md:flex">
+        <div className="hidden items-center gap-x-16 md:flex">
           <Navigation />
-          <div className="h-1 w-20 rounded-full bg-zinc-900"></div>
+          <div className="h-1 w-32 rounded-full bg-zinc-900"></div>
         </div>
       </div>
 

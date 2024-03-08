@@ -1,20 +1,28 @@
 function Navigation() {
+  const navigation = [
+    { title: 'All', path: '/categories/all' },
+    { title: 'Tech', path: '/categories/tech' },
+    { title: 'Living', path: '/categories/living' },
+    { title: 'Coffee', path: '/categories/coffee' },
+    { title: 'Lifestyle', path: '/categories/lifestyle' },
+    { title: 'Personal', path: '/categories/personal' },
+  ];
   return (
     <>
       <div className="mx-3.5 flex flex-col items-end rounded-xl bg-white px-7 py-5 text-3xl text-zinc-900 md:hidden">
-        <a href="#">All</a>
-        <a href="#">Tech</a>
-        <a href="#">Living</a>
-        <a href="#">Coffee</a>
-        <a href="#">Lifestyle</a>
+        {navigation.map((nav, index) => (
+          <a key={index} href={nav.path}>
+            {nav.title}
+          </a>
+        ))}
       </div>
 
-      <div className="hidden flex-row items-center justify-between gap-x-4 rounded-xl bg-white font-light md:flex ">
-        <a href="#">All</a>
-        <a href="#">Tech</a>
-        <a href="#">Living</a>
-        <a href="#">Coffee</a>
-        <a href="#">Lifestyle</a>
+      <div className="hidden grid-cols-3 grid-rows-2 gap-x-8 text-sm font-light md:grid">
+        {navigation.map((nav, index) => (
+          <a key={index} href={nav.path}>
+            {nav.title.toUpperCase()}
+          </a>
+        ))}
       </div>
     </>
   );
