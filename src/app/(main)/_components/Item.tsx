@@ -7,6 +7,7 @@ const items = [
     company: 'Company 1',
     category: 'Category 1',
     image: 'https://via.placeholder.com/300x300',
+    href: '/',
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ const items = [
     company: 'Company 2',
     category: 'Category 2',
     image: 'https://via.placeholder.com/300x300',
+    href: '/',
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ const items = [
     company: 'Company 3',
     category: 'Category 3',
     image: 'https://via.placeholder.com/300x300',
+    href: '/',
   },
   {
     id: 4,
@@ -31,6 +34,7 @@ const items = [
     company: 'Company 4',
     category: 'Category 4',
     image: 'https://via.placeholder.com/300x300',
+    href: '/',
   },
   {
     id: 5,
@@ -39,6 +43,7 @@ const items = [
     company: 'Company 5',
     category: 'Category 5',
     image: 'https://via.placeholder.com/300x300',
+    href: '/',
   },
   {
     id: 6,
@@ -47,6 +52,7 @@ const items = [
     company: 'Company 6',
     category: 'Category 6',
     image: 'https://via.placeholder.com/300x300',
+    href: '/',
   },
   {
     id: 7,
@@ -55,6 +61,7 @@ const items = [
     company: 'Company 7',
     category: 'Category 7',
     image: 'https://via.placeholder.com/300x300',
+    href: '/',
   },
   {
     id: 8,
@@ -63,6 +70,7 @@ const items = [
     company: 'Company 8',
     category: 'Category 8',
     image: 'https://via.placeholder.com/300x300',
+    href: '/',
   },
 ];
 
@@ -76,19 +84,17 @@ function Item() {
           className="aspect-square h-fit w-full object-cover"
         />
       </div>
-
-      <div className="absolute bottom-4  left-4 right-4 flex flex-col gap-2">
+      <div className="absolute bottom-4  left-4 right-4 flex flex-col gap-y-0">
         {/* company / category */}
-        <div className="flex flex-row items-center gap-1 text-xs font-light text-neutral-400">
-          <a className="">Company</a>
-          <p>·</p>
-          <a className="">Category</a>
+        <div className="flex flex-row items-center gap-1 text-xs font-light text-neutral-400 md:text-sm">
+          <span className="">Company</span>
+          <span>·</span>
         </div>
 
         {/* title + price*/}
-        <div className="flex flex-row justify-between gap-1 text-sm text-zinc-700">
-          <a>Title</a>
-          <a>$15</a>
+        <div className="flex flex-row justify-between gap-1 text-sm font-light text-zinc-700 md:text-base">
+          <span>Title</span>
+          <span>$15</span>
         </div>
       </div>
     </div>
