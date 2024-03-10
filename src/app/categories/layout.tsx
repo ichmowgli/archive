@@ -3,9 +3,9 @@ import Header from '../components/Header';
 
 const CategoriesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex h-screen flex-col  ">
+    <div className="flex h-full flex-col  ">
       <Header />
-      <main>{children}</main>
+      <main className="h-screen">{children}</main>
       <Footer />
     </div>
   );

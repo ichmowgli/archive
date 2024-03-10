@@ -1,10 +1,7 @@
 'use client';
 
 import type { Item as DataItem } from '@/app/api/data/route';
-import Item from '@/app/components/Item';
 import SkeletonGrid from '@/app/components/SkeletonGrid';
-import SkeletonItem from '@/app/components/SkeletonItem';
-import { Skeleton } from '@/components/ui/skeleton';
 import { useQuery } from '@tanstack/react-query';
 
 export default function Home() {
@@ -18,7 +15,5 @@ export default function Home() {
   }
   if (error) return <div>Error: {error.message}</div>;
 
-  return (
-    <p>content </p>
-  );
+  return <p>content </p>;
 }
