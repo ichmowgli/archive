@@ -1,8 +1,8 @@
 'use client';
 
+import type { Item as DataItem } from '@/lib/shared';
 import { useQuery } from '@tanstack/react-query';
 
-import type { Item as DataItem } from '../api/data/route';
 import Item from '../components/Item';
 import SkeletonGrid from '../components/SkeletonGrid';
 

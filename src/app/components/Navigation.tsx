@@ -1,4 +1,4 @@
-import { Category } from '@/app/api/data/route';
+import { Category } from '@/lib/shared';
 
 function Navigation() {
   const navigation = [

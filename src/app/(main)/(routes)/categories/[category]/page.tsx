@@ -1,8 +1,8 @@
 'use client';
 
-import type { Item as DataItem } from '@/app/api/data/route';
 import Item from '@/app/components/Item';
 import SkeletonGrid from '@/app/components/SkeletonGrid';
+import type { Item as DataItem } from '@/lib/shared';
 import { useQuery } from '@tanstack/react-query';
 
 export default function CategoryPage({ params }: { params: { category: string } }) {

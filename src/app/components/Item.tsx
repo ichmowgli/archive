@@ -1,6 +1,6 @@
-import type { Item } from '../api/data/route';
+import type { Item as DataItem } from '@/lib/shared';
 
-function Item(props: { item: Item }) {
+function Item(props: { item: DataItem }) {
   const currencyFormatter = new Intl.NumberFormat(undefined, {
     style: 'currency',
     currency: props.item.currency,
