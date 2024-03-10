@@ -1,11 +1,13 @@
+import { Category } from '@/app/api/data/route';
+
 function Navigation() {
   const navigation = [
     { title: 'All', path: '/' },
-    { title: 'Tech', path: '/categories/tech' },
-    { title: 'Living', path: '/categories/living' },
-    { title: 'Coffee', path: '/categories/coffee' },
-    { title: 'Lifestyle', path: '/categories/lifestyle' },
-    { title: 'Personal', path: '/categories/personal' },
+    { title: Category.Tech, path: `/categories/${Category.Tech.toLowerCase()}` },
+    { title: Category.Living, path: `/categories/${Category.Living.toLowerCase()}` },
+    { title: Category.Coffee, path: `/categories/${Category.Coffee.toLowerCase()}` },
+    { title: Category.Lifestyle, path: `/categories/${Category.Lifestyle.toLowerCase()}` },
+    { title: Category.Personal, path: `/categories/${Category.Personal.toLowerCase()}` },
   ];
   return (
     <>

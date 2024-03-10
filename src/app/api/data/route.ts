@@ -1,13 +1,21 @@
 import { NextRequest } from 'next/server';
 
+export enum Category {
+  Tech = 'Tech',
+  Living = 'Living',
+  Coffee = 'Coffee',
+  Lifestyle = 'Lifestyle',
+  Personal = 'Personal',
+}
+
 export type Item = {
   id: number;
   title: string;
   price: number;
   currency: string;
   company: string;
-  category: string;
-  image: string;
+  category: Category;
+  image: `/images/${string}`;
   href: string;
 };
 
@@ -18,7 +26,7 @@ const data: Item[] = [
     price: 69.99,
     currency: 'USD',
     company: 'Lofree',
-    category: 'Tech',
+    category: Category.Tech,
     image: '/images/touch_pbt.png',
     href: 'https://www.lofree.co/products/lofree-touch-pbt-wireless-mouse?variant=44242527551707',
   },
@@ -28,8 +36,8 @@ const data: Item[] = [
     price: 3111,
     currency: 'EUR',
     company: 'Ligne Roset',
-    category: 'Living',
-    image: 'images/togo_sofa.png',
+    category: Category.Living,
+    image: '/images/togo_sofa.png',
     href: 'https://www.ligne-roset.com/de/p/sofas/2-sitzer-togo-1178',
   },
   {
@@ -38,7 +46,7 @@ const data: Item[] = [
     price: 10,
     currency: 'EUR',
     company: 'Teenage Engineering',
-    category: 'Lifestyle',
+    category: Category.Lifestyle,
     image: '/images/pocket-operator-keychain.png',
     href: 'https://teenage.engineering/store/pocket-operator-keychain',
   },
@@ -48,7 +56,7 @@ const data: Item[] = [
     price: 59.95,
     currency: 'EUR',
     company: 'ORE',
-    category: 'Lifestyle',
+    category: Category.Lifestyle,
     image: '/images/washer-ring.png',
     href: 'https://orejewellery.co.uk/products/washer-ring?variant=45719629988119',
   },
@@ -58,7 +66,7 @@ const data: Item[] = [
     price: 34.9,
     currency: 'EUR',
     company: 'Clever',
-    category: 'Coffee',
+    category: Category.Coffee,
     image: '/images/clever_dripper.png',
     href: 'https://www.cremashop.eu/en/products/clever/coffee-dripper-l/11965',
   },
@@ -68,7 +76,7 @@ const data: Item[] = [
     price: 1795,
     currency: 'EUR',
     company: 'Globe Trotter',
-    category: 'Lifestyle',
+    category: Category.Lifestyle,
     image: '/images/centenary.png',
     href: 'https://www.globe-trotter.com/products/centenary-4-wheels-carry-on-black-black-black',
   },
@@ -78,7 +86,7 @@ const data: Item[] = [
     price: 40,
     currency: 'USD',
     company: 'Riot Division',
-    category: 'Lifestyle',
+    category: Category.Lifestyle,
     image: '/images/twist-lock-carabiner.png',
     href: 'https://riotdivision.tech/products/twist-lock-carabiner-rd-tlc-grey',
   },
@@ -88,7 +96,7 @@ const data: Item[] = [
     price: 20,
     currency: 'GBP',
     company: 'The District',
-    category: 'Lifestyle',
+    category: Category.Lifestyle,
     image: '/images/unfortunately.png',
     href: 'https://the-brandidentity.com/store/product/unfortunately',
   },
@@ -98,7 +106,7 @@ const data: Item[] = [
     price: 345,
     currency: 'USD',
     company: 'Fellow',
-    category: 'Coffee',
+    category: Category.Coffee,
     image: '/images/ode.png',
     href: 'https://fellowproducts.com/products/ode-brew-grinder-gen-2?variant=40978992463972',
   },
@@ -108,7 +116,7 @@ const data: Item[] = [
     price: 149.99,
     currency: 'USD',
     company: 'Belkin',
-    category: 'Tech',
+    category: Category.Tech,
     image: '/images/boostcharge-pro.png',
     href: 'https://www.belkin.com/3-in-1-wireless-charger-with-official-magsafe-charging-15w/P-WIZ017.html?dwvar_P-WIZ017_color=White&swatchattr=color&swatchval=White',
   },
@@ -118,19 +126,19 @@ const data: Item[] = [
     price: 745,
     currency: 'EUR',
     company: 'Tekla',
-    category: 'Living',
+    category: Category.Living,
     image: '/images/mohair-blanket.png',
     href: 'https://teklafabrics.com/product/the-colours-of-le-corbusier-mohair-blanket-orange#gallery-modal-image-1',
   },
 ];
 
 export async function GET(req: NextRequest) {
-  const category = req.nextUrl.searchParams.get('category');
+  const category = req.nextUrl.searchParams.get('category')?.toLowerCase();
 
   let res = data;
 
   if (category) {
-    res = res.filter((item) => item.category === category);
+    res = res.filter((item) => item.category.toLowerCase() === category);
   }
 
   return Response.json(res);
