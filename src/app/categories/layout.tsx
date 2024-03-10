@@ -1,7 +1,7 @@
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
-const MainLayout = ({ children }: { children: React.ReactNode }) => {
+const CategoriesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex h-screen flex-col  ">
       <Header />
@@ -11,4 +11,4 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default MainLayout;
+export default CategoriesLayout;

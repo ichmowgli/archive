@@ -1,10 +1,11 @@
 'use client';
 
+import type { Item as DataItem } from '@/app/api/data/route';
+import Item from '@/app/components/Item';
+import SkeletonGrid from '@/app/components/SkeletonGrid';
+import SkeletonItem from '@/app/components/SkeletonItem';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useQuery } from '@tanstack/react-query';
-
-import type { Item as DataItem } from '../api/data/route';
-import Item from '../components/Item';
-import SkeletonGrid from '../components/SkeletonGrid';
 
 export default function Home() {
   const { isPending, error, data } = useQuery<DataItem[]>({
@@ -18,10 +19,6 @@ export default function Home() {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="mx-3.5 flex flex-col gap-3 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-      {data.map((item) => (
-        <Item key={item.id} item={item} />
-      ))}
-    </div>
+    <p>content </p>
   );
 }
