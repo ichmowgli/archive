@@ -102,6 +102,26 @@ const data: Item[] = [
     image: '/images/ode.png',
     href: 'https://fellowproducts.com/products/ode-brew-grinder-gen-2?variant=40978992463972',
   },
+  {
+    id: 12,
+    title: 'BoostCharge Pro',
+    price: 149.99,
+    currency: 'USD',
+    company: 'Belkin',
+    category: 'Tech',
+    image: '/images/boostcharge-pro.png',
+    href: 'https://www.belkin.com/3-in-1-wireless-charger-with-official-magsafe-charging-15w/P-WIZ017.html?dwvar_P-WIZ017_color=White&swatchattr=color&swatchval=White',
+  },
+  {
+    id: 13,
+    title: 'Mohair blanket',
+    price: 745,
+    currency: 'EUR',
+    company: 'Tekla',
+    category: 'Living',
+    image: '/images/mohair-blanket.png',
+    href: 'https://teklafabrics.com/product/the-colours-of-le-corbusier-mohair-blanket-orange#gallery-modal-image-1',
+  },
 ];
 
 export async function GET(req: NextRequest) {
