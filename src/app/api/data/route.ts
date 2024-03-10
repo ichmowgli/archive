@@ -181,7 +181,7 @@ const data: Item[] = [
     category: Category.Coffee,
     image: '/images/supertamp.png',
     href: 'https://cotostudios.com/produkt/supertamp/',
-  }
+  },
 ];
 
 export async function GET(req: NextRequest) {
