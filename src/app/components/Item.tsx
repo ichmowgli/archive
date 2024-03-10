@@ -1,4 +1,4 @@
-import type { Item } from '../../api/data/route';
+import type { Item } from '../api/data/route';
 
 function Item(props: { item: Item }) {
   const currencyFormatter = new Intl.NumberFormat(undefined, {
