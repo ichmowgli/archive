@@ -1,9 +1,10 @@
 import { Category, Item } from '@/lib/shared';
 import { NextRequest } from 'next/server';
+import { v4 as uuidv4 } from 'uuid';
 
 const data: Item[] = [
   {
-    id: 1,
+    id: uuidv4(),
     title: 'TOUCH PBT Wireless Mouse',
     price: 69.99,
     currency: 'USD',
@@ -13,7 +14,7 @@ const data: Item[] = [
     href: 'https://www.lofree.co/products/lofree-touch-pbt-wireless-mouse?variant=44242527551707',
   },
   {
-    id: 2,
+    id: uuidv4(),
     title: 'Togo Sofa',
     price: 3111,
     currency: 'EUR',
@@ -23,7 +24,7 @@ const data: Item[] = [
     href: 'https://www.ligne-roset.com/de/p/sofas/2-sitzer-togo-1178',
   },
   {
-    id: 3,
+    id: uuidv4(),
     title: 'pocket operator keychain',
     price: 10,
     currency: 'EUR',
@@ -33,7 +34,7 @@ const data: Item[] = [
     href: 'https://teenage.engineering/store/pocket-operator-keychain',
   },
   {
-    id: 6,
+    id: uuidv4(),
     title: 'Washer Ring',
     price: 59.95,
     currency: 'EUR',
@@ -43,7 +44,7 @@ const data: Item[] = [
     href: 'https://orejewellery.co.uk/products/washer-ring?variant=45719629988119',
   },
   {
-    id: 7,
+    id: uuidv4(),
     title: 'Clever Dripper',
     price: 34.9,
     currency: 'EUR',
@@ -53,7 +54,7 @@ const data: Item[] = [
     href: 'https://www.cremashop.eu/en/products/clever/coffee-dripper-l/11965',
   },
   {
-    id: 8,
+    id: uuidv4(),
     title: 'CENTENARY',
     price: 1795,
     currency: 'EUR',
@@ -63,7 +64,7 @@ const data: Item[] = [
     href: 'https://www.globe-trotter.com/products/centenary-4-wheels-carry-on-black-black-black',
   },
   {
-    id: 9,
+    id: uuidv4(),
     title: 'TWIST-LOCK CARABINER RD-TLC GREY',
     price: 40,
     currency: 'USD',
@@ -73,7 +74,7 @@ const data: Item[] = [
     href: 'https://riotdivision.tech/products/twist-lock-carabiner-rd-tlc-grey',
   },
   {
-    id: 10,
+    id: uuidv4(),
     title: 'Unfortunately',
     price: 20,
     currency: 'GBP',
@@ -83,7 +84,7 @@ const data: Item[] = [
     href: 'https://the-brandidentity.com/store/product/unfortunately',
   },
   {
-    id: 11,
+    id: uuidv4(),
     title: 'Ode',
     price: 345,
     currency: 'USD',
@@ -93,7 +94,7 @@ const data: Item[] = [
     href: 'https://fellowproducts.com/products/ode-brew-grinder-gen-2?variant=40978992463972',
   },
   {
-    id: 12,
+    id: uuidv4(),
     title: 'BoostCharge Pro',
     price: 149.99,
     currency: 'USD',
@@ -103,7 +104,7 @@ const data: Item[] = [
     href: 'https://www.belkin.com/3-in-1-wireless-charger-with-official-magsafe-charging-15w/P-WIZ017.html?dwvar_P-WIZ017_color=White&swatchattr=color&swatchval=White',
   },
   {
-    id: 13,
+    id: uuidv4(),
     title: 'Mohair blanket',
     price: 745,
     currency: 'EUR',
@@ -113,7 +114,7 @@ const data: Item[] = [
     href: 'https://teklafabrics.com/product/the-colours-of-le-corbusier-mohair-blanket-orange#gallery-modal-image-1',
   },
   {
-    id: 14,
+    id: uuidv4(),
     title: 'PEARL MODEL S',
     price: 220,
     currency: 'USD',
@@ -123,7 +124,7 @@ const data: Item[] = [
     href: 'https://acaia.co/collections/coffee-scales/products/pearl-model-s?variant=43635168968932',
   },
   {
-    id: 15,
+    id: uuidv4(),
     title: 'Laptop 13 DIY Edition',
     price: 979,
     currency: 'EUR',
@@ -143,7 +144,7 @@ const data: Item[] = [
   //   href: 'https://www.aesop.com/de/de/p/skin/mature-skin-concern/b-tea-balancing-toner/',
   // },
   {
-    id: 16,
+    id: uuidv4(),
     title: 'Blackpepper Eau de Parfum',
     price: 95,
     currency: 'EUR',
@@ -153,7 +154,7 @@ const data: Item[] = [
     href: 'https://www.comme-des-garcons.de/en/products/blackpepper-eau-de-parfum?variant=33020993142922',
   },
   {
-    id: 17,
+    id: uuidv4(),
     title: 'Resurrection Aromatique Hand Wash',
     price: 39,
     currency: 'EUR',
@@ -163,7 +164,7 @@ const data: Item[] = [
     href: 'https://www.aesop.com/de/de/p/body-hand/hand-and-body-gifts/resurrection-aromatique-hand-wash/',
   },
   {
-    id: 18,
+    id: uuidv4(),
     title: 'Ukrainian Dripper',
     price: 91.21,
     currency: 'EUR',
@@ -173,7 +174,7 @@ const data: Item[] = [
     href: 'https://www.etsy.com/listing/1685040993/dotyk-dripper-next-gen-handmade-ceramic?etsrc=sdtr',
   },
   {
-    id: 19,
+    id: uuidv4(),
     title: 'Supertamp',
     price: 195,
     currency: 'EUR',
@@ -181,6 +182,26 @@ const data: Item[] = [
     category: Category.Coffee,
     image: '/images/supertamp.png',
     href: 'https://cotostudios.com/produkt/supertamp/',
+  },
+  {
+    id: uuidv4(),
+    title: 'OP-Z protective soft case',
+    price: 48,
+    currency: 'EUR',
+    company: 'Teenage Engineering',
+    category: Category.Lifestyle,
+    image: '/images/opz-protective-soft-case.png',
+    href: 'https://teenage.engineering/store/op-z-soft-case/',
+  },
+  {
+    id: uuidv4(),
+    title: 'Linea Mini',
+    price: 5136,
+    currency: 'EUR',
+    company: 'La Marzocco',
+    category: Category.Coffee,
+    image: '/images/linea-mini.png',
+    href: 'https://lamarzocco.com/fr/en/home-products/espresso-machines/linea-mini-r/',
   },
 ];
 

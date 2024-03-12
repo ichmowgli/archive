@@ -7,7 +7,7 @@ export enum Category {
 }
 
 export type Item = {
-  id: number;
+  id: string;
   title: string;
   price: number;
   currency: string;
