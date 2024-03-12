@@ -3,7 +3,7 @@ import { Category } from '@/lib/shared';
 function Navigation() {
   const navigation = [
     { title: 'All', path: '/' },
-    { title: Category.Tech, path: `/categories/${Category.Tech.toLowerCase()}` },
+    { title: Category.Workspace, path: `/categories/${Category.Workspace.toLowerCase()}` },
     { title: Category.Living, path: `/categories/${Category.Living.toLowerCase()}` },
     { title: Category.Coffee, path: `/categories/${Category.Coffee.toLowerCase()}` },
     { title: Category.Lifestyle, path: `/categories/${Category.Lifestyle.toLowerCase()}` },

@@ -1,5 +1,5 @@
 export enum Category {
-  Tech = 'Tech',
+  Workspace = 'Workspace',
   Living = 'Living',
   Coffee = 'Coffee',
   Lifestyle = 'Lifestyle',
