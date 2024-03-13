@@ -15,7 +15,7 @@ function Heading() {
 
   return (
     <>
-      <div className="m-3.5 flex flex-row items-center justify-between rounded-xl bg-white px-7	py-6">
+      <div className="wrapper-y px-7	py-6">
         <h1 className="text-3xl font-medium uppercase">Archive</h1>
 
         <button className="md:hidden" onClick={handleOpenNav}>

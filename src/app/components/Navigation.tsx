@@ -11,7 +11,7 @@ function Navigation() {
   ];
   return (
     <>
-      <div className="mx-3.5 mb-3.5 flex flex-col items-end rounded-xl bg-white px-7 py-5 text-3xl text-zinc-900 md:hidden">
+      <div className="mx-3.5 mb-3.5 flex flex-col items-end rounded-xl bg-white px-7 py-5 text-3xl md:hidden">
         {navigation.map((nav, index) => (
           <a className="hover:underline" key={index} href={nav.path}>
             {nav.title}

@@ -25,7 +25,7 @@ const data: Item[] = [
   },
   {
     id: uuidv4(),
-    title: 'pocket operator keychain',
+    title: 'Pocket Operator Keychain',
     price: 10,
     currency: 'EUR',
     company: 'Teenage Engineering',
@@ -55,7 +55,7 @@ const data: Item[] = [
   },
   {
     id: uuidv4(),
-    title: 'CENTENARY',
+    title: 'Centenary Carry-On',
     price: 1795,
     currency: 'EUR',
     company: 'Globe Trotter',
@@ -65,13 +65,13 @@ const data: Item[] = [
   },
   {
     id: uuidv4(),
-    title: 'TWIST-LOCK CARABINER RD-TLC GREY',
+    title: 'Twist-lock Carabiner RD-TLC',
     price: 40,
     currency: 'USD',
     company: 'Riot Division',
     category: Category.Lifestyle,
     image: '/images/twist-lock-carabiner.png',
-    href: 'https://riotdivision.Workspace/products/twist-lock-carabiner-rd-tlc-grey',
+    href: 'https://riotdivision.tech/products/twist-lock-carabiner-rd-tlc-grey',
   },
   {
     id: uuidv4(),
@@ -93,16 +93,6 @@ const data: Item[] = [
     image: '/images/ode.png',
     href: 'https://fellowproducts.com/products/ode-brew-grinder-gen-2?variant=40978992463972',
   },
-  // {
-  //   id: uuidv4(),
-  //   title: 'BoostCharge Pro',
-  //   price: 149.99,
-  //   currency: 'USD',
-  //   company: 'Belkin',
-  //   category: Category.Workspace,
-  //   image: '/images/boostcharge-pro.png',
-  //   href: 'https://www.belkin.com/3-in-1-wireless-charger-with-official-magsafe-charging-15w/P-WIZ017.html?dwvar_P-WIZ017_color=White&swatchattr=color&swatchval=White',
-  // },
   {
     id: uuidv4(),
     title: 'Mohair blanket',
@@ -115,7 +105,7 @@ const data: Item[] = [
   },
   {
     id: uuidv4(),
-    title: 'PEARL MODEL S',
+    title: 'Pearl Model S',
     price: 220,
     currency: 'USD',
     company: 'Acaia',
@@ -188,7 +178,7 @@ const data: Item[] = [
     title: 'AT-SB727',
     price: 199,
     currency: 'USD',
-    company: 'Audio-Workspacenica',
+    company: 'Audio-Technica',
     category: Category.Workspace,
     image: '/images/at-sb727.png',
     href: 'https://www.audio-Workspacenica.com/en-us/turntables/all/at-sb727',
@@ -255,7 +245,7 @@ const data: Item[] = [
   },
   {
     id: uuidv4(),
-    title: 'TGC102 yuzu soap',
+    title: 'TGC102 Yuzu Soap',
     price: 25,
     currency: 'EUR',
     company: 'Tangent GC',
@@ -266,7 +256,7 @@ const data: Item[] = [
 
   {
     id: uuidv4(),
-    title: 'CM-15',
+    title: 'Microphone CM-15',
     price: 1199,
     currency: 'EUR',
     company: 'Teenage Engineering',
@@ -373,6 +363,16 @@ const data: Item[] = [
     category: Category.Living,
     image: '/images/how-to-travel.png',
     href: 'https://the-brandidentity.com/store/product/how-to-travel',
+  },
+  {
+    id: uuidv4(),
+    title: 'V03D-BR/BL/WH',
+    price: 219,
+    currency: 'USD',
+    company: 'Void',
+    category: Category.Lifestyle,
+    image: '/images/v03d-br-bl-wh.png',
+    href: 'https://voidwatches.com/collections/v03d/products/v03d-br-bl-wh?ref=some.wtf',
   },
 ];
 

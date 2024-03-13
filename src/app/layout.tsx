@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <ReactQueryClientProvider>
       <html lang="en" className={GeistSans.className}>
-        <body className="bg-stone-200">{children}</body>
+        <body>{children}</body>
       </html>
     </ReactQueryClientProvider>
   );
