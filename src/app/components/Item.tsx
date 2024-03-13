@@ -29,8 +29,8 @@ function Item(props: { item: DataItem }) {
             {props.item.category}
           </Link>
         </div>
-        <div className="flex flex-row justify-between gap-1 truncate text-xs text-zinc-600">
-          <span>{props.item.title}</span>
+        <div className="flex flex-row justify-between gap-1 text-xs text-zinc-600">
+          <span className="truncate">{props.item.title}</span>
           <span suppressHydrationWarning>{currencyFormatter.format(props.item.price)}</span>
         </div>
       </div>
