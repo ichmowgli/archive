@@ -189,7 +189,7 @@ const data: Item[] = [
     price: 199,
     currency: 'USD',
     company: 'Audio-Technica',
-    category: Category.Workspace,
+    category: Category.Living,
     image: '/images/at-sb727.png',
     href: 'https://www.audio-Workspacenica.com/en-us/turntables/all/at-sb727',
   },
