@@ -2,7 +2,7 @@ import { Category, Item } from '@/lib/shared';
 import { NextRequest } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 
-const data: Item[] = [
+const DATA: Item[] = [
   {
     id: uuidv4(),
     title: 'TOUCH PBT Wireless Mouse',
@@ -475,14 +475,22 @@ const data: Item[] = [
   },
 ];
 
+const PAGE_SIZE = 24;
+
 export async function GET(req: NextRequest) {
   const category = req.nextUrl.searchParams.get('category')?.toLowerCase();
+  const pageParam = Number(req.nextUrl.searchParams.get('page') ?? 1);
 
-  let res = data;
+  let res = DATA;
 
   if (category) {
     res = res.filter((item) => item.category.toLowerCase() === category);
   }
 
-  return Response.json(res);
+  const data = res.slice((pageParam - 1) * PAGE_SIZE, pageParam * PAGE_SIZE);
+
+  return Response.json({
+    data,
+    nextCursor: pageParam * PAGE_SIZE < res.length ? pageParam + 1 : null,
+  });
 }
