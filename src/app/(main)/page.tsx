@@ -7,10 +7,11 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { ArrowDown } from 'lucide-react';
 
 import Item from '../components/Item';
+import Pager from '../components/Pager';
 import SkeletonGrid from '../components/SkeletonGrid';
 
 export default function Home() {
-  const { error, data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, status } = useInfiniteQuery<{
+  const { error, data, fetchNextPage, hasNextPage, isFetchingNextPage, status } = useInfiniteQuery<{
     data: DataItem[];
     nextCursor: number | null;
   }>({
@@ -40,15 +41,7 @@ export default function Home() {
           </React.Fragment>
         ))}
       </div>
-      <div className="mb-8 flex justify-center md:mb-10">
-        {hasNextPage ? (
-          <button onClick={() => fetchNextPage()} disabled={isFetchingNextPage}>
-            <div className="items-center rounded-md bg-gray-50 px-4 py-1.5 hover:bg-white">
-              <ArrowDown width={20} height={20} strokeWidth={1} />
-            </div>
-          </button>
-        ) : null}
-      </div>
+      <Pager fetchNextPage={fetchNextPage} isFetchingNextPage={isFetchingNextPage} hasNextPage={hasNextPage} />
     </>
   );
 }

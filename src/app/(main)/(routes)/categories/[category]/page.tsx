@@ -3,13 +3,13 @@
 import React from 'react';
 
 import Item from '@/app/components/Item';
+import Pager from '@/app/components/Pager';
 import SkeletonGrid from '@/app/components/SkeletonGrid';
 import type { Item as DataItem } from '@/lib/shared';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { ArrowDown } from 'lucide-react';
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
-  const { error, data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, status } = useInfiniteQuery<{
+  const { error, data, fetchNextPage, hasNextPage, isFetchingNextPage, status } = useInfiniteQuery<{
     data: DataItem[];
     nextCursor: number | null;
   }>({
@@ -28,7 +28,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <>
+    <div>
       <div className="grid-items">
         {data.pages.map((page, i) => (
           <React.Fragment key={i}>
@@ -38,15 +38,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
           </React.Fragment>
         ))}
       </div>
-      <div className="mb-8 flex justify-center md:mb-10">
-        {hasNextPage ? (
-          <button onClick={() => fetchNextPage()} disabled={isFetchingNextPage}>
-            <div className="items-center rounded-md bg-gray-50 px-4  py-1.5">
-              <ArrowDown width={20} height={20} strokeWidth={1} />
-            </div>
-          </button>
-        ) : null}
-      </div>
-    </>
+      <Pager fetchNextPage={fetchNextPage} isFetchingNextPage={isFetchingNextPage} hasNextPage={hasNextPage} />
+    </div>
   );
 }
