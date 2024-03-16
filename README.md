@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Archive aka Homo Consumpens { [site](https://archive.mowgli.codes) }
 
-## Getting Started
+Welcome to Archive, a web application where you can discover and explore a collection of products and items that I personally enjoy and recommend.
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Archive is a curated collection of various products, ranging from gadgets and accessories to books and coffee stuff. It serves as a personal catalog of items that I find interesting and worth sharing with others.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Browse through different categories of products
+- Each product includes image, price, title, company and link 
+- Search for specific products using categories
+- Infinite scroll for seamless browsing experience
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Technologies
 
-## Learn More
+- Next.js
+- Tanstack
+- Tailwind
+- Bun
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run Archive locally, follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository: `git clone https://github.com/ichmowgli/archive.git`
+2. Navigate to the project directory: `cd archive`
+3. Install the required dependencies: `bun install`
+4. Start the development server: `bun run dev`
+5. Open your web browser and visit `http://localhost:3000`
 
-## Deploy on Vercel
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Once the application is running, you can start exploring the collection of products by navigating through the different categories.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feel free to customize the collection by adding your own products or modifying the existing ones.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
