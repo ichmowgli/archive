@@ -4,6 +4,7 @@ import React from 'react';
 
 import type { Item as DataItem } from '@/lib/shared';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { ArrowDown } from 'lucide-react';
 
 import Item from '../components/Item';
 import SkeletonGrid from '../components/SkeletonGrid';
@@ -39,15 +40,12 @@ export default function Home() {
           </React.Fragment>
         ))}
       </div>
-      <div>
-        {isFetching ? (
-          <div>
-            <SkeletonGrid />
-          </div>
-        ) : null}
+      <div className="mb-8 flex justify-center md:mb-10">
         {hasNextPage ? (
           <button onClick={() => fetchNextPage()} disabled={isFetchingNextPage}>
-            {isFetchingNextPage ? 'Loading more...' : 'Load More'}
+            <div className="items-center rounded-md bg-gray-50 px-4 py-1.5 hover:bg-white">
+              <ArrowDown width={20} height={20} strokeWidth={1} />
+            </div>
           </button>
         ) : null}
       </div>

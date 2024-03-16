@@ -6,6 +6,7 @@ import Item from '@/app/components/Item';
 import SkeletonGrid from '@/app/components/SkeletonGrid';
 import type { Item as DataItem } from '@/lib/shared';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { ArrowDown } from 'lucide-react';
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
   const { error, data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, status } = useInfiniteQuery<{
@@ -37,11 +38,12 @@ export default function CategoryPage({ params }: { params: { category: string } 
           </React.Fragment>
         ))}
       </div>
-      <div>
-        {isFetching ? <div>Fetching...</div> : null}
+      <div className="mb-8 flex justify-center md:mb-10">
         {hasNextPage ? (
           <button onClick={() => fetchNextPage()} disabled={isFetchingNextPage}>
-            {isFetchingNextPage ? 'Loading more...' : 'Load More'}
+            <div className="items-center rounded-md bg-gray-50 px-4  py-1.5">
+              <ArrowDown width={20} height={20} strokeWidth={1} />
+            </div>
           </button>
         ) : null}
       </div>
