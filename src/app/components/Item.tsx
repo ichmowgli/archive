@@ -7,21 +7,12 @@ function Item(props: { item: DataItem }) {
     style: 'currency',
     currency: props.item.currency,
   });
-   
 
   return (
     <div className="group relative flex aspect-[0.88] flex-col place-content-center rounded-xl border border-gray-200 bg-gray-50 p-4 px-5 pb-12 pt-0 hover:border-gray-400 hover:bg-white">
-    
       <div className="mx-auto aspect-square object-cover duration-300 ease-in-out group-hover:-translate-y-1.5">
         <Link href={props.item.href}>
-          <Image
-            priority={true}
-            quality={65}
-            src={props.item.image}
-            alt={props.item.title}
-            width={500}
-            height={500}
-          />
+          <Image priority={true} quality={65} src={props.item.image} alt={props.item.title} width={500} height={500} />
         </Link>
       </div>
       <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-y-0">
