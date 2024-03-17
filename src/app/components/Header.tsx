@@ -17,7 +17,6 @@ function Heading() {
     <>
       <div className="wrapper-y px-7	py-6">
         <h1 className="text-3xl font-medium uppercase">Archive</h1>
-
         <button className="md:hidden" onClick={handleOpenNav}>
           {openNav ? <X height={24} width={24} /> : <AlignJustify />}
         </button>

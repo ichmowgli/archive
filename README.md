@@ -9,7 +9,7 @@ Archive is a curated collection of various products, ranging from gadgets and ac
 ## Features
 
 - Browse through different categories of products
-- Each product includes image, price, title, company and link 
+- Each product includes image, price, title, company and link
 - Search for specific products using categories
 - Infinite scroll for seamless browsing experience
 
