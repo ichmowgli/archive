@@ -1,4 +1,5 @@
 import type { Item as DataItem } from '@/lib/shared';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,8 +9,30 @@ function Item(props: { item: DataItem }) {
     currency: props.item.currency,
   });
 
+  const itemVariants = {
+    hidden: {
+      filter: 'blur(5px)',
+      opacity: 0,
+      scale: 0.95,
+    },
+    visible: {
+      filter: 'blur(0px)',
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.35,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
   return (
-    <div className="group relative flex aspect-[0.88] flex-col place-content-center rounded-xl border border-gray-200 bg-gray-50 p-4 px-5 pb-12 pt-0 hover:border-gray-400 hover:bg-white">
+    <motion.div
+      variants={itemVariants}
+      initial="hidden"
+      whileInView="visible"
+      className="group relative flex aspect-[0.88] flex-col place-content-center rounded-xl border border-gray-200 bg-gray-50 p-4 px-5 pb-12 pt-0 hover:border-gray-400 hover:bg-white"
+    >
       <div className="mx-auto aspect-square object-cover duration-300 ease-in-out group-hover:-translate-y-1.5">
         <Link href={props.item.href}>
           <Image priority={true} quality={65} src={props.item.image} alt={props.item.title} width={500} height={500} />
@@ -30,7 +53,7 @@ function Item(props: { item: DataItem }) {
           <span suppressHydrationWarning>{currencyFormatter.format(props.item.price)}</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
