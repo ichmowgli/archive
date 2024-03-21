@@ -191,7 +191,7 @@ const DATA: Item[] = [
     company: 'Audio-Technica',
     category: Category.Living,
     image: '/images/at-sb727.png',
-    href: 'https://www.audio-Workspacenica.com/en-us/turntables/all/at-sb727',
+    href: 'https://www.audio-technica.com/en-us/turntables/all/at-sb727',
   },
   {
     id: uuidv4(),
