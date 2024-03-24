@@ -485,14 +485,34 @@ const DATA: Item[] = [
   // },
   {
     id: uuidv4(),
-    title: "Percale Duvet Cover",
+    title: 'Percale Duvet Cover',
     price: 255,
     currency: 'EUR',
     company: 'Tekla x Stussy',
     category: Category.Living,
     image: '/images/percale-duvet-cover.png',
     href: 'https://eu.stussy.com/collections/accessories/products/338217-tekla-percale-duvet-cover-hand-drawn-stripe',
-  }
+  },
+  {
+    id: uuidv4(),
+    title: 'MIJIA Electric Screwdriver',
+    price: 45.9,
+    currency: 'EUR',
+    company: 'Xiaomi',
+    category: Category.Living,
+    image: '/images/mijia-electric-screwdriver.png',
+    href: 'https://www.banggood.com/de/XIAOMI-Mijia-3_6V-2000mAh-Cordless-Rechargeable-Screwdriver-Li-ion-5N_m-Electric-Screwdriver-With-12Pcs-S2-Screw-Bits-for-Home-DIY-p-1536377.html?imageAb=2&akmClientCountry=LV&cur_warehouse=HK',
+  },
+  {
+    id: uuidv4(),
+    title: '990v4 Core',
+    price: 240,
+    currency: 'EUR',
+    company: 'New Balance',
+    category: Category.Lifestyle,
+    image: '/images/990v4-core.png',
+    href: 'https://www.newbalance.lv/en/pd/made-in-usa-990v4-core/U990V4-41721.html?dwvar_U990V4-41721_style=U990GR4',
+  },
 ];
 
 const PAGE_SIZE = 24;
