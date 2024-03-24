@@ -473,16 +473,26 @@ const DATA: Item[] = [
     image: '/images/the-beanbag.png',
     href: 'https://vetsak.com/products/vetsak-the-jumbo-beanbag-cord-velours-platinum',
   },
+  // {
+  //   id: uuidv4(),
+  //   title: 'Docker Tissue',
+  //   price: 52.43,
+  //   currency: 'EUR',
+  //   company: 'WAN HAI Model Store',
+  //   category: Category.Living,
+  //   image: '/images/docker-tissue.png',
+  //   href: 'https://www.aliexpress.com/item/1005004234668132.html',
+  // },
   {
     id: uuidv4(),
-    title: 'Docker Tissue',
-    price: 52.43,
+    title: "Percale Duvet Cover",
+    price: 255,
     currency: 'EUR',
-    company: 'WAN HAI Model Store',
+    company: 'Tekla x Stussy',
     category: Category.Living,
-    image: '/images/docker-tissue.png',
-    href: 'https://www.aliexpress.com/item/1005004234668132.html',
-  },
+    image: '/images/percale-duvet-cover.png',
+    href: 'https://eu.stussy.com/collections/accessories/products/338217-tekla-percale-duvet-cover-hand-drawn-stripe',
+  }
 ];
 
 const PAGE_SIZE = 24;
