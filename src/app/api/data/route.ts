@@ -513,6 +513,26 @@ const DATA: Item[] = [
     image: '/images/990v4-core.png',
     href: 'https://www.newbalance.lv/en/pd/made-in-usa-990v4-core/U990V4-41721.html?dwvar_U990V4-41721_style=U990GR4',
   },
+  {
+    id: uuidv4(),
+    title: 'BR-X5 Black Steel',
+    price: 7990,
+    currency: 'EUR',
+    company: 'Bell & Ross',
+    category: Category.Lifestyle,
+    image: '/images/br-x5-black-steel.png',
+    href: 'https://www.bellross.com/eu/en-gb/our-watches/our-watches-urban/BR-X5/BR-X5-BLACK-STEEL-STEEL-BRACELET',
+  },
+  {
+    id: uuidv4(),
+    title: 'Oral Care Set',
+    price: 11.99,
+    currency: 'EUR',
+    company: 'Curaprox',
+    category: Category.Personal,
+    image: '/images/oral-care-set.png',
+    href: 'https://curaprox.de/shop/zahnpflege/travel-set-blau',
+  },
 ];
 
 const PAGE_SIZE = 24;
