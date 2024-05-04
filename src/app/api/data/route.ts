@@ -583,6 +583,16 @@ const DATA: Item[] = [
     image: '/images/hand-pomade.png',
     href: 'https://www.lelabofragrances.com/eu_en/hand-pomade-1.html',
   },
+  {
+    id: uuidv4(),
+    title: '003BT_OLIVE',
+    price: 114.33,
+    currency: 'USD',
+    company: 'Mospoke',
+    category: Category.Lifestyle,
+    image: '/images/003bt_olive.png',
+    href: 'https://www.mospoke.com/collections/coffee-accessories/products/003bt-olive',
+  },
 ];
 
 const PAGE_SIZE = 24;
