@@ -493,7 +493,7 @@ const DATA: Item[] = [
     image: '/images/percale-duvet-cover.png',
     href: 'https://eu.stussy.com/collections/accessories/products/338217-tekla-percale-duvet-cover-hand-drawn-stripe',
   },
-  
+
   {
     id: uuidv4(),
     title: 'MIJIA Electric Screwdriver',
