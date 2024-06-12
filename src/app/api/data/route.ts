@@ -594,6 +594,16 @@ const DATA: Item[] = [
     image: '/images/003bt_olive.png',
     href: 'https://www.mospoke.com/collections/coffee-accessories/products/003bt-olive',
   },
+  {
+    id: uuidv4(),
+    title: '9351 XL KEY CLIP',
+    price: 20,
+    currency: 'EUR',
+    company: 'Maharishi',
+    category: Category.Lifestyle,
+    image: '/images/9351-xl-key-clip.png',
+    href: 'https://www.maharishistore.com/products/9351-xl-key-clip-stainless-steel',
+  },
 ];
 
 const PAGE_SIZE = 24;
