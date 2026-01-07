@@ -11,6 +11,9 @@ use ApiPlatform\Metadata\Delete;
 use App\Repository\ItemRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
+use ApiPlatform\Metadata\ApiFilter;
 
 #[ORM\Entity(repositoryClass: ItemRepository::class)]
 #[ApiResource(
@@ -20,8 +23,12 @@ use Doctrine\ORM\Mapping as ORM;
         new Post(),
         new Put(),
         new Delete()
-    ]
+    ],
+    paginationItemsPerPage: 24
 )]
+#[ApiFilter(SearchFilter::class, properties: ['category' => 'exact', 'company' => 'partial'])]
+#[ApiFilter(OrderFilter::class, properties: ['price', 'title', 'id'])]
+
 class Item
 {
     #[ORM\Id]
