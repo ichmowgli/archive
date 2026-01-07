@@ -78,7 +78,7 @@ class ItemFixtures extends Fixture
             $item->setCategory($itemData['category']);
             $item->setImage($itemData['image'] ?? null);
             $item->setHref($itemData['href'] ?? null);
-            
+
             $manager->persist($item);
         }
 
