@@ -9,8 +9,7 @@ export async function GET(req: NextRequest) {
   const params = new URLSearchParams();
 
   if (category) {
-    const normalizedCategory = category.charAt(0).toUpperCase() + category.slice(1);
-    params.append('category', normalizedCategory);
+    params.append('category', category);
   }
 
   params.append('page', pageParam);
