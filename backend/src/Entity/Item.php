@@ -28,7 +28,6 @@ use ApiPlatform\Metadata\ApiFilter;
 )]
 #[ApiFilter(SearchFilter::class, properties: ['category' => 'exact', 'company' => 'partial'])]
 #[ApiFilter(OrderFilter::class, properties: ['price', 'title', 'id'])]
-
 class Item
 {
     #[ORM\Id]

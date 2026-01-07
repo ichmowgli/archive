@@ -9,7 +9,8 @@ export async function GET(req: NextRequest) {
   const params = new URLSearchParams();
 
   if (category) {
-    params.append('category', category);
+    const normalizedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+    params.append('category', normalizedCategory);
   }
 
   params.append('page', pageParam);
@@ -18,8 +19,8 @@ export async function GET(req: NextRequest) {
     const response = await fetch(`${SYMFONY_API_URL}?${params.toString()}`);
     const data = await response.json();
 
-    const items = data['hydra:member'] || [];
-    const totalItems = data['hydra:totalItems'] || 0;
+    const items = data['hydra:member'] || data.member || [];
+    const totalItems = data['hydra:totalItems'] || data.totalItems || 0;
     const currentPage = parseInt(pageParam);
     const itemsPerPage = 24;
 
