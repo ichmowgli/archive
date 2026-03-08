@@ -16,9 +16,7 @@ function Footer() {
       <div className="group flex flex-row items-center font-normal text-muted-foreground">
         <Link href="https://twitter.com/ichmowgli">
           Follow me on{" "}
-          <span className="text-zinc-600 underline-offset-4 group-hover:underline">
-            Twitter
-          </span>
+          <span className="text-zinc-600 underline-offset-4 group-hover:underline">Twitter</span>
         </Link>
         <ArrowUpRight size={20} className=" ml-1" />
       </div>
