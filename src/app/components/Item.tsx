@@ -1,13 +1,19 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import type { Item as DataItem } from "@/lib/shared";
+import React from "react";
+import type { Item as DataItem } from "../../lib/shared";
 
 function Item(props: { item: DataItem }) {
   const currencyFormatter = new Intl.NumberFormat(undefined, {
     style: "currency",
     currency: props.item.currency,
   });
+
+  const visibleTransition: { duration: number; ease: "easeInOut" } = {
+    duration: 0.35,
+    ease: "easeInOut",
+  };
 
   const itemVariants = {
     hidden: {
@@ -19,10 +25,7 @@ function Item(props: { item: DataItem }) {
       filter: "blur(0px)",
       opacity: 1,
       scale: 1,
-      transition: {
-        duration: 0.35,
-        ease: "easeInOut",
-      },
+      transition: visibleTransition,
     },
   };
 
