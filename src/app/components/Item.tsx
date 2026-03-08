@@ -1,8 +1,7 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import type { Item as DataItem } from "../../lib/shared";
+import type { Item as DataItem } from "@/lib/shared";
 
 function Item(props: { item: DataItem }) {
   const currencyFormatter = new Intl.NumberFormat(undefined, {

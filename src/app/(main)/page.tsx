@@ -2,11 +2,11 @@
 
 import { useInfiniteQuery } from "@tanstack/react-query";
 import React from "react";
-import type { Item as DataItem } from "@/lib/shared";
 
-import Item from "../components/Item";
-import Pager from "../components/Pager";
-import SkeletonGrid from "../components/SkeletonGrid";
+import Item from "@/app/components/Item";
+import Pager from "@/app/components/Pager";
+import SkeletonGrid from "@/app/components/SkeletonGrid";
+import type { Item as DataItem } from "@/lib/shared";
 
 export default function Home() {
   const { error, data, fetchNextPage, hasNextPage, isFetchingNextPage, status } = useInfiniteQuery<{
