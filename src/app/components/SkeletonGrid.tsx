@@ -1,6 +1,4 @@
-import React from 'react';
-
-import SkeletonItem from './SkeletonItem';
+import SkeletonItem from "./SkeletonItem";
 
 function SkeletonGrid() {
   return (
