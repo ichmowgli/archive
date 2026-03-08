@@ -8,7 +8,7 @@ function Footer() {
         <span className="text-muted-foreground">Build by</span>{" "}
         <Link
           className="text-zinc-600 underline-offset-4 hover:underline "
-          href="https://mowgli.codes"
+          href="https://ichmowgli.co"
         >
           ichmowgli
         </Link>

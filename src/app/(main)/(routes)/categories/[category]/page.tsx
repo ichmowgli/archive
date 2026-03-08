@@ -7,14 +7,15 @@ import Pager from "@/app/components/Pager";
 import SkeletonGrid from "@/app/components/SkeletonGrid";
 import type { Item as DataItem } from "@/lib/shared";
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
+export default function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
+  const { category } = React.use(params);
   const { error, data, fetchNextPage, hasNextPage, isFetchingNextPage, status } = useInfiniteQuery<{
     data: DataItem[];
     nextCursor: number | null;
   }>({
-    queryKey: ["items-data", params.category],
+    queryKey: ["items-data", category],
     queryFn: async ({ pageParam }) => {
-      const res = await fetch(`/api/data?category=${params.category}&page=${pageParam}`);
+      const res = await fetch(`/api/data?category=${category}&page=${pageParam}`);
       return res.json();
     },
     initialPageParam: 1,

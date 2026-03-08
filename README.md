@@ -1,4 +1,4 @@
-Homo Consumpens { [site](https://archive.mowgli.codes) }
+Homo Consumpens { [site](https://archive.ichmowgli.co) }
 
 Welcome to Archive, a web application where you can discover and explore a collection of products and items that I personally enjoy and recommend.
 
