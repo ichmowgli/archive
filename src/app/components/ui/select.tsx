@@ -6,7 +6,24 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-const Select = SelectPrimitive.Root;
+const EMPTY_VALUE = "__empty__";
+
+function Select({
+  value,
+  defaultValue,
+  onValueChange,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>) {
+  return (
+    <SelectPrimitive.Root
+      value={value === "" ? EMPTY_VALUE : value}
+      defaultValue={defaultValue === "" ? EMPTY_VALUE : defaultValue}
+      onValueChange={(v) => onValueChange?.(v === EMPTY_VALUE ? "" : v)}
+      {...props}
+    />
+  );
+}
+Select.displayName = SelectPrimitive.Root.displayName;
 
 const SelectGroup = SelectPrimitive.Group;
 
@@ -107,9 +124,10 @@ SelectLabel.displayName = SelectPrimitive.Label.displayName;
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
->(({ className, children, ...props }, ref) => (
+>(({ className, children, value, ...props }, ref) => (
   <SelectPrimitive.Item
     ref={ref}
+    value={value === "" ? EMPTY_VALUE : value}
     className={cn(
       "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,

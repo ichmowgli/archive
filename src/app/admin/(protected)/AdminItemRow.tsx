@@ -10,7 +10,7 @@ export default function AdminItemRow({ item }: { item: AdminItemRowType }) {
       <td className="p-3 text-muted-foreground">{item.category}</td>
       <td className="p-3 text-muted-foreground">{collectionName}</td>
       <td className="p-3 text-muted-foreground">
-        {Number(item.price)} {item.currency}
+        {Number(item.price)} {item.currency ? item.currency.toUpperCase() : ""}
       </td>
       <td className="p-3">
         <span

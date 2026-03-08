@@ -1,3 +1,4 @@
+import ImageFieldWithDrop from "@/app/admin/ImageFieldWithDrop";
 import { Button, buttonVariants } from "@/app/components/ui/button";
 import { FieldInput, FieldSelect } from "@/app/components/ui/field";
 import type { CollectionRow, ItemRow } from "@/lib/db/types";
@@ -12,6 +13,13 @@ type ItemFormProps = {
 };
 
 const categoryOptions = Object.values(Category).map((c) => ({ value: c, label: c }));
+
+const currencyOptions = [
+  { value: "eur", label: "EUR" },
+  { value: "usd", label: "USD" },
+  { value: "uah", label: "UAH" },
+  { value: "pln", label: "PLN" },
+];
 
 export default function ItemForm({ collections, item, action, submitLabel }: ItemFormProps) {
   return (
@@ -47,21 +55,21 @@ export default function ItemForm({ collections, item, action, submitLabel }: Ite
           required
           defaultValue={item?.price}
         />
-        <FieldInput
+        <FieldSelect
           label="Currency"
           id="currency"
           name="currency"
-          type="text"
+          options={currencyOptions}
           required
-          defaultValue={item?.currency}
+          defaultValue={item?.currency?.toLowerCase()}
         />
       </div>
-      <FieldInput
-        label="Image (URL or path)"
+      <ImageFieldWithDrop
+        label="Image"
         id="image"
-        type="text"
-        required
+        name="image"
         defaultValue={item?.image}
+        required
       />
       <FieldInput
         label="Link (href)"
