@@ -1,27 +1,27 @@
-import type { Item as DataItem } from '@/lib/shared';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import type { Item as DataItem } from "@/lib/shared";
 
 function Item(props: { item: DataItem }) {
   const currencyFormatter = new Intl.NumberFormat(undefined, {
-    style: 'currency',
+    style: "currency",
     currency: props.item.currency,
   });
 
   const itemVariants = {
     hidden: {
-      filter: 'blur(5px)',
+      filter: "blur(5px)",
       opacity: 0,
       scale: 0.95,
     },
     visible: {
-      filter: 'blur(0px)',
+      filter: "blur(0px)",
       opacity: 1,
       scale: 1,
       transition: {
         duration: 0.35,
-        ease: 'easeInOut',
+        ease: "easeInOut",
       },
     },
   };
@@ -35,7 +35,14 @@ function Item(props: { item: DataItem }) {
     >
       <div className="mx-auto aspect-square object-cover duration-300 ease-in-out group-hover:-translate-y-1.5">
         <Link href={props.item.href}>
-          <Image priority={true} quality={65} src={props.item.image} alt={props.item.title} width={500} height={500} />
+          <Image
+            priority={true}
+            quality={65}
+            src={props.item.image}
+            alt={props.item.title}
+            width={500}
+            height={500}
+          />
         </Link>
       </div>
       <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-y-0">

@@ -1,11 +1,11 @@
-import { Category } from '@/lib/shared';
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
+import { Category } from "@/lib/shared";
 
 function Navigation() {
   const pathname = usePathname();
 
   const navigation = [
-    { title: 'All', path: '/' },
+    { title: "All", path: "/" },
     { title: Category.Workspace, path: `/categories/${Category.Workspace.toLowerCase()}` },
     { title: Category.Living, path: `/categories/${Category.Living.toLowerCase()}` },
     { title: Category.Coffee, path: `/categories/${Category.Coffee.toLowerCase()}` },
@@ -15,11 +15,15 @@ function Navigation() {
   return (
     <>
       <div className="mx-3.5 mb-3.5 flex flex-col items-end rounded-xl bg-white px-7 py-5 text-3xl md:hidden">
-        {navigation.map((nav, index) => {
+        {navigation.map((nav) => {
           const isActive = pathname === nav.path;
 
           return (
-            <a className={isActive ? 'underline' : 'hover:underline'} key={index} href={nav.path}>
+            <a
+              className={isActive ? "underline" : "hover:underline"}
+              key={nav.path}
+              href={nav.path}
+            >
               {nav.title}
             </a>
           );
@@ -27,10 +31,14 @@ function Navigation() {
       </div>
 
       <div className="hidden grid-cols-3 grid-rows-2 gap-x-8 text-sm font-light md:grid">
-        {navigation.map((nav, index) => {
+        {navigation.map((nav) => {
           const isActive = pathname === nav.path;
           return (
-            <a key={index} className={isActive ? 'underline' : 'hover:underline'} href={nav.path}>
+            <a
+              key={nav.path}
+              className={isActive ? "underline" : "hover:underline"}
+              href={nav.path}
+            >
               {nav.title.toUpperCase()}
             </a>
           );

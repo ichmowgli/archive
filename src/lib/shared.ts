@@ -1,9 +1,9 @@
 export enum Category {
-  Workspace = 'Workspace',
-  Living = 'Living',
-  Coffee = 'Coffee',
-  Lifestyle = 'Lifestyle',
-  Personal = 'Personal',
+  Workspace = "Workspace",
+  Living = "Living",
+  Coffee = "Coffee",
+  Lifestyle = "Lifestyle",
+  Personal = "Personal",
 }
 
 export type Item = {

@@ -1,11 +1,10 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { AlignJustify, X } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
-import { cn } from '@/lib/utils';
-import { AlignJustify, X } from 'lucide-react';
-
-import Navigation from './Navigation';
+import Navigation from "./Navigation";
 
 function Heading() {
   const [openNav, setOpenNav] = useState(false);
@@ -17,7 +16,7 @@ function Heading() {
     <>
       <div className="wrapper-y px-7	py-6">
         <h1 className="text-3xl font-medium uppercase">Archive</h1>
-        <button className="md:hidden" onClick={handleOpenNav}>
+        <button type="button" className="md:hidden" onClick={handleOpenNav}>
           {openNav ? <X height={24} width={24} /> : <AlignJustify />}
         </button>
 
@@ -28,7 +27,7 @@ function Heading() {
       </div>
 
       <div
-        className={cn('md:hidden', {
+        className={cn("md:hidden", {
           hidden: !openNav,
         })}
       >
