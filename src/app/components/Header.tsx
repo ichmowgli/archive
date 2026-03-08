@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 import Navigation from "./Navigation";
 
-function Heading() {
+function Header() {
   const [openNav, setOpenNav] = useState(false);
   const handleOpenNav = () => {
     setOpenNav(!openNav);
@@ -16,7 +16,12 @@ function Heading() {
     <>
       <div className="wrapper-y px-7	py-6">
         <h1 className="text-3xl font-medium uppercase">Archive</h1>
-        <button type="button" className="md:hidden" onClick={handleOpenNav}>
+        <button
+          type="button"
+          className="md:hidden"
+          onClick={handleOpenNav}
+          aria-label={openNav ? "Close menu" : "Open menu"}
+        >
           {openNav ? <X height={24} width={24} /> : <AlignJustify />}
         </button>
 
@@ -37,4 +42,4 @@ function Heading() {
   );
 }
 
-export default Heading;
+export default Header;

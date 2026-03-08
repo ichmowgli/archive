@@ -1,7 +1,8 @@
 import { createClient } from "@utils/supabase/server";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { getItems, isSortOption, normalizeCategory } from "@/lib/db";
+import { isSortOption, normalizeCategory } from "@/lib/db/constants";
+import { getItems } from "@/lib/db/items";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

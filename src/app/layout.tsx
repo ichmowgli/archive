@@ -1,8 +1,7 @@
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 
+import DeferredAnalytics from "./DeferredAnalytics";
 import { ReactQueryClientProvider } from "./ReactQueryClientProvider";
 import "./globals.css";
 
@@ -31,8 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en" className={GeistSans.className}>
         <body>
           {children}
-          <SpeedInsights />
-          <Analytics />
+          <DeferredAnalytics />
         </body>
       </html>
     </ReactQueryClientProvider>

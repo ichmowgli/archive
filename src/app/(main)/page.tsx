@@ -1,11 +1,5 @@
-import { createClient } from "@utils/supabase/server";
-import { cookies } from "next/headers";
-
 import HomeClient from "./HomeClient";
 
-export default async function Home() {
-  const cookieStore = await cookies();
-  const _supabase = createClient(cookieStore);
-
+export default function Home() {
   return <HomeClient />;
 }

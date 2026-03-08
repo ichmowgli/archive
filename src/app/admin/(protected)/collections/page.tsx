@@ -1,4 +1,6 @@
 import Link from "next/link";
+import AdminNav from "@/app/admin/(protected)/AdminNav";
+import AdminPageHeader from "@/app/admin/(protected)/AdminPageHeader";
 import { adminDeleteCollectionForm, adminGetCollections } from "@/app/admin/actions";
 import type { CollectionRow } from "@/lib/db/types";
 
@@ -7,32 +9,8 @@ export default async function AdminCollectionsPage() {
 
   return (
     <div className="p-6">
-      <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-semibold text-foreground">Collections</h1>
-        <form action="/admin/logout" method="post">
-          <button
-            type="submit"
-            className="text-sm text-muted-foreground underline hover:text-foreground"
-          >
-            Log out
-          </button>
-        </form>
-      </div>
-
-      <nav className="mb-8 flex gap-4 border-b border-border pb-4">
-        <Link
-          href="/admin"
-          className="text-sm font-medium text-muted-foreground hover:text-foreground"
-        >
-          Items
-        </Link>
-        <Link
-          href="/admin/collections"
-          className="text-sm font-medium text-primary underline underline-offset-4"
-        >
-          Collections
-        </Link>
-      </nav>
+      <AdminPageHeader title="Collections" />
+      <AdminNav current="collections" />
 
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-lg font-medium text-foreground">All collections</h2>

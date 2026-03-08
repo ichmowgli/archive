@@ -1,36 +1,48 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo } from "react";
 import type { Item as DataItem } from "@/lib/shared";
 
+const VISIBLE_TRANSITION = { duration: 0.35, ease: "easeInOut" as const };
+
+const ITEM_VARIANTS = {
+  hidden: {
+    filter: "blur(5px)",
+    opacity: 0,
+    scale: 0.95,
+  },
+  visible: {
+    filter: "blur(0px)",
+    opacity: 1,
+    scale: 1,
+    transition: VISIBLE_TRANSITION,
+  },
+};
+
+const currencyFormatterCache = new Map<string, Intl.NumberFormat>();
+
+function getCurrencyFormatter(currency: string): Intl.NumberFormat {
+  let formatter = currencyFormatterCache.get(currency);
+  if (!formatter) {
+    formatter = new Intl.NumberFormat(undefined, {
+      style: "currency",
+      currency,
+    });
+    currencyFormatterCache.set(currency, formatter);
+  }
+  return formatter;
+}
+
 function Item(props: { item: DataItem }) {
-  const currencyFormatter = new Intl.NumberFormat(undefined, {
-    style: "currency",
-    currency: props.item.currency,
-  });
-
-  const visibleTransition: { duration: number; ease: "easeInOut" } = {
-    duration: 0.35,
-    ease: "easeInOut",
-  };
-
-  const itemVariants = {
-    hidden: {
-      filter: "blur(5px)",
-      opacity: 0,
-      scale: 0.95,
-    },
-    visible: {
-      filter: "blur(0px)",
-      opacity: 1,
-      scale: 1,
-      transition: visibleTransition,
-    },
-  };
+  const currencyFormatter = useMemo(
+    () => getCurrencyFormatter(props.item.currency),
+    [props.item.currency],
+  );
 
   return (
     <motion.div
-      variants={itemVariants}
+      variants={ITEM_VARIANTS}
       initial="hidden"
       whileInView="visible"
       className="group relative flex aspect-[0.88] flex-col place-content-center rounded-xl border border-gray-200 bg-gray-50 p-4 px-5 pb-12 pt-0 hover:border-gray-400 hover:bg-white"
