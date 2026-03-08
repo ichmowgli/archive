@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState, useTransition } from "react";
+import { Suspense, useState, useTransition } from "react";
 import { requestAdminMagicLink } from "@/app/admin/actions";
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
@@ -81,7 +81,9 @@ export default function AdminLoginPage() {
           </form>
         )}
 
-        <LoginErrorMessage />
+        <Suspense fallback={null}>
+          <LoginErrorMessage />
+        </Suspense>
       </div>
     </div>
   );
