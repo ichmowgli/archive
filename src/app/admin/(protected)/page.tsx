@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AdminNav from "@/app/admin/(protected)/AdminNav";
 import AdminPageHeader from "@/app/admin/(protected)/AdminPageHeader";
+import AdminStatusTabs from "@/app/admin/(protected)/AdminStatusTabs";
 import { adminGetItems, adminGetItemsCounts } from "@/app/admin/actions";
 import AdminItemRow from "./AdminItemRow";
 
@@ -55,38 +56,7 @@ export default async function AdminDashboardPage({
         </Link>
       </div>
 
-      <div className="mb-3 flex gap-1 rounded-md border border-border p-1">
-        <Link
-          href="/admin"
-          className={`rounded px-3 py-1.5 text-sm font-medium ${
-            tab === "all"
-              ? "bg-primary text-primary-foreground"
-              : "text-muted-foreground hover:bg-muted hover:text-foreground"
-          }`}
-        >
-          All
-        </Link>
-        <Link
-          href="/admin?status=active"
-          className={`rounded px-3 py-1.5 text-sm font-medium ${
-            tab === "active"
-              ? "bg-primary text-primary-foreground"
-              : "text-muted-foreground hover:bg-muted hover:text-foreground"
-          }`}
-        >
-          Active
-        </Link>
-        <Link
-          href="/admin?status=archived"
-          className={`rounded px-3 py-1.5 text-sm font-medium ${
-            tab === "archived"
-              ? "bg-primary text-primary-foreground"
-              : "text-muted-foreground hover:bg-muted hover:text-foreground"
-          }`}
-        >
-          Archived
-        </Link>
-      </div>
+      <AdminStatusTabs current={tab} />
 
       <div className="overflow-x-auto rounded-md border border-border">
         <table className="w-full min-w-[640px] text-left text-sm">

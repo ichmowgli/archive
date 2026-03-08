@@ -11,31 +11,31 @@ type ItemFormProps = {
   submitLabel: string;
 };
 
+const categoryOptions = Object.values(Category).map((c) => ({ value: c, label: c }));
+
 export default function ItemForm({ collections, item, action, submitLabel }: ItemFormProps) {
   return (
     <form action={action} className="flex max-w-xl flex-col gap-4">
       <FieldInput label="Title" id="title" type="text" required defaultValue={item?.title} />
       <FieldInput label="Company" id="company" type="text" required defaultValue={item?.company} />
-      <FieldSelect label="Category" id="category" required defaultValue={item?.category}>
-        {Object.values(Category).map((c) => (
-          <option key={c} value={c}>
-            {c}
-          </option>
-        ))}
-      </FieldSelect>
+      <FieldSelect
+        label="Category"
+        id="category"
+        name="category"
+        options={categoryOptions}
+        required
+        defaultValue={item?.category}
+      />
       <FieldSelect
         label="Collection"
         id="collection_id"
         name="collection_id"
+        options={[
+          { value: "", label: "None" },
+          ...collections.map((c) => ({ value: c.id, label: c.name })),
+        ]}
         defaultValue={item?.collection_id ?? ""}
-      >
-        <option value="">None</option>
-        {collections.map((c) => (
-          <option key={c.id} value={c.id}>
-            {c.name}
-          </option>
-        ))}
-      </FieldSelect>
+      />
       <div className="grid grid-cols-2 gap-4">
         <FieldInput
           label="Price"
