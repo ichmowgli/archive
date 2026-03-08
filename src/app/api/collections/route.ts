@@ -1,8 +1,7 @@
+import { createClient } from "@utils/supabase/server";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-
 import { getCollections } from "@/lib/db";
-import { createClient } from "../../../../utils/supabase/server";
 
 export async function GET() {
   try {

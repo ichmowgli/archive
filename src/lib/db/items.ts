@@ -114,3 +114,145 @@ export async function getItemById(supabase: SupabaseClient, id: string): Promise
 
   return rowToItem(data as ItemRow);
 }
+
+// --- Admin: all items (any status), with collection slug for display ---
+export type AdminItemRow = ItemRow & { collections?: { slug: string; name: string } | null };
+
+export async function getItemsForAdmin(
+  supabase: SupabaseClient,
+  params: { page?: number; limit?: number; status?: "active" | "archived" | null } = {},
+): Promise<{ data: AdminItemRow[]; nextCursor: number | null; total: number }> {
+  const page = Math.max(1, params.page ?? 1);
+  const limit = Math.min(100, Math.max(1, params.limit ?? 50));
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+
+  let query = supabase
+    .from("items")
+    .select(
+      "id,title,price,currency,company,category,image,href,created_at,status,collection_id,collections(slug,name)",
+      {
+        count: "exact",
+      },
+    )
+    .order("created_at", { ascending: false })
+    .range(from, to);
+
+  if (params.status === "active" || params.status === "archived") {
+    query = query.eq("status", params.status);
+  }
+
+  const { data: rows, error, count } = await query;
+
+  if (error) throw new Error(`Failed to fetch items: ${error.message}`);
+
+  const data = (rows ?? []).map((r) => {
+    const raw = r as {
+      collections?: { slug: string; name: string } | { slug: string; name: string }[] | null;
+    };
+    const c = raw.collections;
+    const single = Array.isArray(c) ? (c[0] ?? null) : (c ?? null);
+    return { ...r, collections: single } as AdminItemRow;
+  });
+  const total = count ?? 0;
+  const hasMore = total > to + 1;
+  return { data, nextCursor: hasMore ? page + 1 : null, total };
+}
+
+export async function getItemsCountsForAdmin(
+  supabase: SupabaseClient,
+): Promise<{ active: number; archived: number }> {
+  const [activeRes, archivedRes] = await Promise.all([
+    supabase.from("items").select("id", { count: "exact", head: true }).eq("status", "active"),
+    supabase.from("items").select("id", { count: "exact", head: true }).eq("status", "archived"),
+  ]);
+  return {
+    active: activeRes.count ?? 0,
+    archived: archivedRes.count ?? 0,
+  };
+}
+
+export async function getItemByIdForAdmin(
+  supabase: SupabaseClient,
+  id: string,
+): Promise<ItemRow | null> {
+  const { data, error } = await supabase
+    .from("items")
+    .select("id,title,price,currency,company,category,image,href,created_at,status,collection_id")
+    .eq("id", id)
+    .single();
+
+  if (error || !data) return null;
+  return data as ItemRow;
+}
+
+export type CreateItemPayload = {
+  title: string;
+  price: number;
+  currency: string;
+  company: string;
+  category: string;
+  image: string;
+  href: string;
+  collection_id?: string | null;
+};
+
+export type UpdateItemPayload = Partial<CreateItemPayload>;
+
+export async function createItem(
+  supabase: SupabaseClient,
+  payload: CreateItemPayload,
+): Promise<ItemRow> {
+  const { data, error } = await supabase
+    .from("items")
+    .insert({
+      title: payload.title,
+      price: payload.price,
+      currency: payload.currency,
+      company: payload.company,
+      category: payload.category,
+      image: payload.image,
+      href: payload.href,
+      collection_id: payload.collection_id ?? null,
+      status: "active",
+    })
+    .select()
+    .single();
+
+  if (error) throw new Error(`Failed to create item: ${error.message}`);
+  return data as ItemRow;
+}
+
+export async function updateItem(
+  supabase: SupabaseClient,
+  id: string,
+  payload: UpdateItemPayload,
+): Promise<ItemRow> {
+  const { data, error } = await supabase
+    .from("items")
+    .update({
+      ...(payload.title !== undefined && { title: payload.title }),
+      ...(payload.price !== undefined && { price: payload.price }),
+      ...(payload.currency !== undefined && { currency: payload.currency }),
+      ...(payload.company !== undefined && { company: payload.company }),
+      ...(payload.category !== undefined && { category: payload.category }),
+      ...(payload.image !== undefined && { image: payload.image }),
+      ...(payload.href !== undefined && { href: payload.href }),
+      ...(payload.collection_id !== undefined && { collection_id: payload.collection_id }),
+    })
+    .eq("id", id)
+    .select()
+    .single();
+
+  if (error) throw new Error(`Failed to update item: ${error.message}`);
+  return data as ItemRow;
+}
+
+export async function updateItemStatus(
+  supabase: SupabaseClient,
+  id: string,
+  status: "active" | "archived",
+): Promise<void> {
+  const { error } = await supabase.from("items").update({ status }).eq("id", id);
+  if (error) throw new Error(`Failed to update status: ${error.message}`);
+}
