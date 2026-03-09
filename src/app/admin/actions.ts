@@ -31,11 +31,18 @@ export async function requestAdminMagicLink(
   if (!allowed || normalized !== allowed) {
     return { error: "unauthorized" };
   }
+
+  const base =
+    process.env.NEXT_PUBLIC_APP_URL ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
+  const emailRedirectTo = base
+    ? `${base}/auth/callback`
+    : redirectTo || "http://localhost:3000/auth/callback";
   const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
   const { error } = await supabase.auth.signInWithOtp({
     email: normalized,
-    options: { emailRedirectTo: redirectTo },
+    options: { emailRedirectTo },
   });
   if (error) return { error: error.message };
   return { error: null };
@@ -55,7 +62,11 @@ async function getSupabaseForAdmin() {
 
 export async function adminGetItems(page: number = 1, status?: "active" | "archived" | null) {
   const supabase = await getSupabaseForAdmin();
-  return getItemsForAdmin(supabase, { page, limit: 50, status: status ?? undefined });
+  return getItemsForAdmin(supabase, {
+    page,
+    limit: 50,
+    status: status ?? undefined,
+  });
 }
 
 export async function adminGetItemsCounts() {
