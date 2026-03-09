@@ -36,8 +36,8 @@ export async function requestAdminMagicLink(
     process.env.NEXT_PUBLIC_APP_URL ??
     (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
   const emailRedirectTo = base
-    ? `${base}/auth/callback`
-    : redirectTo || "http://localhost:3000/auth/callback";
+    ? `${base.replace(/\/$/, "")}/auth/callback`
+    : redirectTo?.trim() || "http://localhost:3000/auth/callback";
   const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
   const { error } = await supabase.auth.signInWithOtp({
